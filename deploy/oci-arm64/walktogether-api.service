@@ -1,0 +1,22 @@
+[Unit]
+Description=WalkTogether Go API
+Wants=network-online.target
+After=network-online.target postgresql.service
+
+[Service]
+Type=simple
+User=walktogether
+Group=walktogether
+WorkingDirectory=/opt/walktogether/backend
+EnvironmentFile=/etc/walktogether/walktogether.env
+ExecStart=/usr/local/bin/walktogether-api
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/walktogether
+
+[Install]
+WantedBy=multi-user.target

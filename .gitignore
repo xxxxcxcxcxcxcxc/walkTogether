@@ -1,0 +1,23 @@
+# Node
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+build/
+frontend/.env
+frontend/.env.*
+!frontend/.env.example
+
+# Local secrets
+/.env
+/.env.*
+!/.env.example
+
+# Go
+backend/bin/
+backend/.env
+backend/.env.*
+!backend/.env.example
+
+# System
+.DS_Store
+*.log

@@ -1,0 +1,21 @@
+[Unit]
+Description=WalkTogether Telegram notification worker
+Wants=network-online.target
+After=network-online.target postgresql.service walktogether-api.service
+
+[Service]
+Type=simple
+User=walktogether
+Group=walktogether
+WorkingDirectory=/opt/walktogether/backend
+EnvironmentFile=/etc/walktogether/walktogether.env
+ExecStart=/usr/local/bin/walktogether-worker
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+
+[Install]
+WantedBy=multi-user.target
